@@ -3,91 +3,117 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Feast — Support &amp; Privacy</title>
+<title>Feast — A Book of Mormon verse on your lock screen</title>
+<meta name="description" content="Feast puts a hand-picked Book of Mormon verse on your iPhone lock screen, refreshed through the day. Offline. No account. No ads.">
 <style>
-  :root { --ink:#1c1e2b; --muted:#5b5e70; --accent:#47407a; --bg:#faf9f6; --line:#e7e5df; }
-  @media (prefers-color-scheme: dark) {
-    :root { --ink:#ececf1; --muted:#a6a8b8; --accent:#b7b0e6; --bg:#14151c; --line:#2b2d38; }
+  :root {
+    --ink:#1b1d29; --muted:#5b5e70; --accent:#4a437f; --accent-2:#d99648;
+    --bg:#faf8f4; --band:#f1eee7; --card:#ffffff; --line:#e7e4dd;
   }
-  * { box-sizing: border-box; }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink:#eceef4; --muted:#a6a9ba; --accent:#b9b2ea; --accent-2:#e6ac63;
+      --bg:#111219; --band:#171922; --card:#1c1e28; --line:#2a2c38;
+    }
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
   body { margin:0; background:var(--bg); color:var(--ink);
-    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
-  .wrap { max-width:720px; margin:0 auto; padding:48px 24px 80px; }
-  header { border-bottom:1px solid var(--line); padding-bottom:20px; margin-bottom:8px; }
-  h1 { font-size:1.9rem; margin:0 0 4px; letter-spacing:-.02em; }
-  .tag { color:var(--muted); font-size:.95rem; }
-  h2 { font-size:1.15rem; margin:34px 0 10px; letter-spacing:-.01em; }
-  h3 { font-size:1rem; margin:22px 0 6px; }
-  p, li { color:var(--ink); }
-  .muted { color:var(--muted); }
-  ul { padding-left:1.2em; }
-  li { margin:6px 0; }
-  a { color:var(--accent); }
-  .lead { font-size:1.05rem; }
-  .card { background:transparent; border:1px solid var(--line); border-radius:14px; padding:18px 20px; margin:14px 0; }
-  .updated { color:var(--muted); font-size:.85rem; }
-  footer { margin-top:48px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:.9rem; }
+    font:17px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:1040px; margin:0 auto; padding:0 24px; }
+  a { color:var(--accent); text-decoration:none; }
+
+  /* Hero */
+  .hero { text-align:center; padding:76px 0 40px; }
+  .mark { width:64px; height:64px; border-radius:16px; display:inline-flex; align-items:center;
+    justify-content:center; margin-bottom:22px;
+    background:linear-gradient(150deg,#1b2038,#5c3d55 55%,#dd9448); box-shadow:0 8px 30px rgba(0,0,0,.18); }
+  .mark span { font-size:32px; }
+  h1 { font-size:clamp(2.1rem,5vw,3.2rem); line-height:1.08; letter-spacing:-.03em; margin:0 0 14px; }
+  .sub { font-size:clamp(1.05rem,2.4vw,1.35rem); color:var(--muted); max-width:620px; margin:0 auto 30px; }
+  .cta { display:inline-flex; align-items:center; gap:10px; background:var(--ink); color:var(--bg);
+    padding:13px 22px; border-radius:999px; font-weight:600; font-size:1rem; }
+  .cta small { opacity:.7; font-weight:500; }
+  .price { display:block; margin-top:14px; color:var(--muted); font-size:.95rem; }
+
+  /* Screens */
+  .screens { display:flex; gap:22px; justify-content:center; flex-wrap:wrap; padding:26px 0 60px; }
+  .screens img { width:230px; max-width:60vw; border-radius:26px; border:1px solid var(--line);
+    box-shadow:0 18px 50px rgba(0,0,0,.16); }
+
+  /* Features */
+  .band { background:var(--band); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .features { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:24px; padding:64px 0; }
+  .feat h3 { font-size:1.12rem; margin:0 0 6px; letter-spacing:-.01em; }
+  .feat p { margin:0; color:var(--muted); font-size:.98rem; }
+  .feat .ic { font-size:1.5rem; display:block; margin-bottom:10px; }
+
+  .closing { text-align:center; padding:70px 0; }
+  .closing h2 { font-size:clamp(1.5rem,3.5vw,2.1rem); letter-spacing:-.02em; margin:0 0 16px; }
+  .closing p { color:var(--muted); max-width:560px; margin:0 auto 26px; }
+
+  footer { border-top:1px solid var(--line); color:var(--muted); font-size:.9rem; padding:30px 0 50px; }
+  footer .wrap { display:flex; flex-wrap:wrap; gap:16px; justify-content:space-between; align-items:center; }
+  footer a { color:var(--muted); }
+  .disc { max-width:560px; }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <h1>Feast</h1>
-    <div class="tag">A Book of Mormon verse on your lock screen. Support &amp; privacy.</div>
-  </header>
 
-  <h2>Support</h2>
-  <p class="lead">Questions, bugs, or feedback? I read every message.</p>
-  <div class="card">
-    <p style="margin:0"><strong>Email:</strong>
-      <a href="mailto:williams.parker002@gmail.com">williams.parker002@gmail.com</a></p>
+  <section class="hero">
+    <div class="wrap">
+      <div class="mark"><span>📖</span></div>
+      <h1>A verse where you'll actually see it.</h1>
+      <p class="sub">Feast puts a hand-picked Book of Mormon verse on your iPhone
+      lock screen and quietly refreshes it through the day.</p>
+      <a class="cta" href="#" aria-disabled="true">Coming to the App&nbsp;Store <small>· iPhone</small></a>
+      <span class="price">$2.99 · one-time · no ads, no account, fully offline</span>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="screens">
+      <img src="img/lockscreen.png" alt="Book of Mormon verse on the iPhone lock screen" loading="lazy">
+      <img src="img/home-widget.png" alt="Home-screen verse widget" loading="lazy">
+      <img src="img/browse.png" alt="Browse and search all Book of Mormon verses" loading="lazy">
+    </div>
+  </section>
+
+  <div class="band">
+    <div class="wrap">
+      <div class="features">
+        <div class="feat"><span class="ic">🔒</span><h3>On your lock screen</h3>
+          <p>A rotating verse below the clock — plus a full-width home-screen widget.</p></div>
+        <div class="feat"><span class="ic">✨</span><h3>1,233 curated verses</h3>
+          <p>Each one hand-picked to stand on its own — short, and chosen to uplift.</p></div>
+        <div class="feat"><span class="ic">⏱️</span><h3>You set the pace</h3>
+          <p>A new verse every 1–12 hours, only during the hours you choose. Reshuffle anytime.</p></div>
+        <div class="feat"><span class="ic">🔎</span><h3>The whole book</h3>
+          <p>Browse and search all 6,604 verses — by book, theme, emotion, or speaker.</p></div>
+        <div class="feat"><span class="ic">📵</span><h3>Completely offline</h3>
+          <p>Everything ships in the app. No network, no account, no ads, no tracking.</p></div>
+        <div class="feat"><span class="ic">💛</span><h3>Yours once</h3>
+          <p>A single $2.99 purchase. Nothing to renew.</p></div>
+      </div>
+    </div>
   </div>
 
-  <h3>Common questions</h3>
-  <p><strong>The widget isn&rsquo;t showing / updating.</strong> Add it from the lock
-  screen (long-press → Customize → the area below the clock) or the home screen
-  (long-press → +). Verses change on the schedule you set in the app&rsquo;s
-  Settings (default: a new verse every 3 hours, 6am–10pm).</p>
-  <p><strong>The verse doesn&rsquo;t change outside certain hours.</strong> That&rsquo;s by
-  design — outside your active hours the widget holds the last verse of the day.</p>
-  <p><strong>How do I change how often it rotates?</strong> Open the app →
-  Settings → &ldquo;New verse every.&rdquo; You can also reshuffle the order.</p>
-
-  <h2>Privacy Policy</h2>
-  <div class="updated">Last updated: July 26, 2026</div>
-  <p class="lead">What Feast does with your information: <strong>nothing.</strong></p>
-
-  <h3>We do not collect any data</h3>
-  <p>Feast has no account system, no analytics, no advertising, and makes
-  <strong>no network connections</strong>. Every verse and all settings are
-  stored on your device.</p>
-  <ul>
-    <li><strong>No personal information</strong> is collected, stored on a server, or transmitted.</li>
-    <li><strong>No usage or analytics data</strong> is gathered.</li>
-    <li><strong>No third-party SDKs</strong> for tracking, ads, or analytics are included.</li>
-    <li><strong>No device identifiers</strong> are read for tracking.</li>
-  </ul>
-
-  <h3>Information stored on your device</h3>
-  <p>The app stores a small amount of data locally, in an app group shared
-  between the app and its widget, solely so the app can function:</p>
-  <ul>
-    <li>Your rotation preferences (interval and active hours).</li>
-    <li>A random number (&ldquo;shuffle seed&rdquo;) that determines your personal verse order.</li>
-  </ul>
-  <p>This data never leaves your device. It is removed when you delete the app.</p>
-
-  <h3>Children&rsquo;s privacy</h3>
-  <p>The app collects no data from anyone, including children under 13.</p>
-
-  <h3>Changes to this policy</h3>
-  <p>If this policy changes, the updated version will be posted here with a new
-  &ldquo;last updated&rdquo; date.</p>
+  <section class="closing">
+    <div class="wrap">
+      <h2>A quiet companion for daily study.</h2>
+      <p>A verse to carry with you — without opening an app.</p>
+      <a class="cta" href="#" aria-disabled="true">Coming to the App&nbsp;Store</a>
+    </div>
+  </section>
 
   <footer>
-    Feast is an independent project and is not affiliated with, endorsed by, or
-    sponsored by The Church of Jesus Christ of Latter-day Saints.
+    <div class="wrap">
+      <span class="disc">Feast is an independent project and is not affiliated with, endorsed by,
+        or sponsored by The Church of Jesus Christ of Latter-day Saints.</span>
+      <span><a href="support.html">Support</a> &nbsp;·&nbsp; <a href="support.html">Privacy</a></span>
+    </div>
   </footer>
-</div>
+
 </body>
 </html>
